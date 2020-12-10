@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PutLegalPaymentOrderRq>
+    <PaymentOrder>
+        <transKind>01</transKind>
+        <PaymentOrderNumber>000061</PaymentOrderNumber>
+        <Date>2020-11-06+03:00</Date>
+        <PaymentSum>456345.13</PaymentSum>
+        <CommissionSum>7685.56</CommissionSum>
+        <PayerData>
+            <Name>OOO Shuba-Duba</Name>
+            <Account>40702810038001213108</Account>
+            <Inn>4355020124</Inn>
+            <Kpp>725719119</Kpp>
+            <ClientID>1425473368942636823793761</ClientID>
+            <ProductUID>6847060478722900010</ProductUID>
+            <RegisterUID>6847060478722900016</RegisterUID>
+            <BankData>
+                <Name>PAO SBERBANK</Name>
+                <Bic>044525225</Bic>
+                <BankAccount>30101810400000000225</BankAccount>
+            </BankData>
+        </PayerData>
+        <PayeeData>
+            <Name>OOO GRAVIZAPPA6787678</Name>
+            <Account>40702810738001117067</Account>
+            <Inn>4437389956</Inn>
+            <Kpp>443019119</Kpp>
+            <Type>2</Type>
+            <ClientID>1424767310682788995</ClientID>
+            <ProductUID>6846737252900274180</ProductUID>
+            <RegisterUID>6846737252900274186</RegisterUID>
+            <BankData>
+                <Name>PAO SBERBANK</Name>
+                <Bic>044525225</Bic>
+                <BankAccount>30101810400000000225</BankAccount>
+            </BankData>
+        </PayeeData>
+        <PaymentPurpose>55555/555</PaymentPurpose>
+        <PaymentPriority>5</PaymentPriority>
+        <PaymentPriorityAuto>5</PaymentPriorityAuto>
+        <PaymentSendType>3</PaymentSendType>
+        <PaymentPurposeCode>3</PaymentPurposeCode>
+        <TaxFields>
+            <PayerStatus>1</PayerStatus>
+            <UinCode>000000000000000000000000</UinCode>
+            <Kbk>18210601010031000110</Kbk>
+            <Oktmo>45319000</Oktmo>
+            <PaymentBasis>TP</PaymentBasis>
+            <TaxPeriod>GD.00.2019</TaxPeriod>
+            <DocumentTaxNumber>1820</DocumentTaxNumber>
+            <DocumentTaxDate>2020-11-06</DocumentTaxDate>
+            <TaxPayKind>SI</TaxPayKind>
+        </TaxFields>
+    </PaymentOrder>
+    <PayerAccountInfoBankInfoVSPNum>38903801775</PayerAccountInfoBankInfoVSPNum>
+    <docRef>78465654673534</docRef>
+    <OperationType>3</OperationType>
+    <cmsBase64>srEdsfsdvs534sdfg54gfgdf</cmsBase64>
+    <FirstSigner>
+        <IdFirstSigner>131321315</IdFirstSigner>
+        <DateTimeFirstSigner>2020-11-06T03:18:33+03:00</DateTimeFirstSigner>
+        <FirstSignatureFio>Ivanov A.A></FirstSignatureFio>
+    </FirstSigner>
+</PutLegalPaymentOrderRq>
