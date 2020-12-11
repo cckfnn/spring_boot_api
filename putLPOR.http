@@ -4,9 +4,9 @@ Content-Type: application/xml
 
 <?xml version="1.0" encoding="utf-8" ?>
 <PutLegalPaymentOrderRq>
-    <PayerAccountInfoBankInfoVSPNum>38903801775</PayerAccountInfoBankInfoVSPNum>
+    <payerAccountInfoBankInfoVSPNum>38903801775</payerAccountInfoBankInfoVSPNum>
     <docRef>78465654673534</docRef>
-    <OperationType>3</OperationType>
+    <operationType>3</operationType>
     <cmsBase64>srEdsfsdvs534sdfg54gfgdf</cmsBase64>
 </PutLegalPaymentOrderRq>
 

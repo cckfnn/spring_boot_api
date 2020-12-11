@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping(value = "/payment-orders", produces = MediaType.APPLICATION_XML_VALUE)
+@RequestMapping(value = "/payment-orders", produces = {MediaType.APPLICATION_XML_VALUE})
 @RequiredArgsConstructor
 public class PaymentOrderController {
 

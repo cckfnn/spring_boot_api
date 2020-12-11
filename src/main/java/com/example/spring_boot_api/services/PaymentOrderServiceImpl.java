@@ -21,10 +21,10 @@ public class PaymentOrderServiceImpl implements PaymentOrderService{
 
     private PaymentOrderEntity dtoToEntity(PutLegalPaymentOrderRq putLegalPaymentOrderRq) {
         return PaymentOrderEntity.builder()
-                .payerAccountInfoBankInfoVSPNum(putLegalPaymentOrderRq.getPayerAccountInfoBankInfoVSPNum())
+                .cmsBase64(putLegalPaymentOrderRq.getCmsBase64())
                 .docRef(putLegalPaymentOrderRq.getDocRef())
                 .operationType(putLegalPaymentOrderRq.getOperationType())
-                .cmsBase64(putLegalPaymentOrderRq.getCmsBase64())
+                .payerAccountInfoBankInfoVSPNum(putLegalPaymentOrderRq.getPayerAccountInfoBankInfoVSPNum())
                 .build();
     }
 

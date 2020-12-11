@@ -3,6 +3,10 @@ package com.example.spring_boot_api.dto;
 
 import lombok.*;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 
 @Getter
@@ -10,6 +14,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
+@XmlRootElement(name = "PutLegalPaymentOrderRq")
 public class PutLegalPaymentOrderRq implements Serializable {
 
     private static final long serialVersionUID = 1383504060214961234L;
