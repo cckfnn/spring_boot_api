@@ -2,7 +2,7 @@ package com.example.spring_boot_api.services;
 
 
 import com.example.spring_boot_api.dto.ListPaymentOrder;
-import com.sbt.pprb.dto.srvputlegalpaymentorder.PutLegalPaymentOrderRq;
+import com.example.spring_boot_api.dto.PutLegalPaymentOrderRq;
 import org.springframework.http.ResponseEntity;
 
 

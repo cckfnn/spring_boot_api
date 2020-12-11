@@ -104,57 +104,15 @@ public class PaymentOrderEntityControllerTest {
                 .andExpect(xpath("/PutLegalPaymentOrderRq/cmsBase64").string("srEdsfsdvs534sdfg54gfgdf"))
                 .andExpect(xpath("/PutLegalPaymentOrderRq/FirstSigner/IdFirstSigner").string("131321315"))
                 .andExpect(xpath("/PutLegalPaymentOrderRq/FirstSigner/DateTimeFirstSigner").string("2020-11-06T03:18:33+03:00"))
-//                .andExpect(xpath("/PutLegalPaymentOrderRq/FirstSigner/FirstSignatureFio").string("Ivanov A.A"))
         ;
 
-        List<PaymentOrderEntity> entityList = paymentOrderRepository.findByPaymentOrderNumber("000061");
+        List<PaymentOrderEntity> entityList = paymentOrderRepository.findByDocRef("78465654673534");
 
         assertEquals(1, entityList.size());
-        assertEquals("000061", entityList.get(0).getPaymentOrderNumber());
-//        assertEquals("2020-11-06+03:00", entityList.get(0).getDate());
-        assertEquals(BigDecimal.valueOf(456345.13), entityList.get(0).getPaymentSum());
-        assertEquals(BigDecimal.valueOf(7685.56), entityList.get(0).getCommissionSum());
-        assertEquals("OOO Shuba-Duba", entityList.get(0).getPayerDataName());
-        assertEquals("40702810038001213108", entityList.get(0).getPayerDataAccount());
-        assertEquals("4355020124", entityList.get(0).getPayerDataInn());
-        assertEquals("725719119", entityList.get(0).getPayerDataKpp());
-        assertEquals("1425473368942636823793761", entityList.get(0).getPayerDataClientID());
-        assertEquals("1425473368942636823793761", entityList.get(0).getPayerDataClientID());
-        assertEquals("6847060478722900010", entityList.get(0).getPayerDataProductUID());
-        assertEquals("6847060478722900016", entityList.get(0).getPayerDataRegisterUID());
-        assertEquals("PAO SBERBANK", entityList.get(0).getPayerDataBankDataName());
-        assertEquals("044525225", entityList.get(0).getPayerDataBankDataBic());
-        assertEquals("30101810400000000225", entityList.get(0).getPayerDataBankDataBankAccount());
-        assertEquals("OOO GRAVIZAPPA", entityList.get(0).getPayeeDataName());
-        assertEquals("40702810738001117067", entityList.get(0).getPayeeDataAccount());
-        assertEquals("4437389956", entityList.get(0).getPayeeDataInn());
-        assertEquals("443019119", entityList.get(0).getPayeeDataKpp());
-        assertEquals("2", entityList.get(0).getPayeeDataType());
-        assertEquals("1424767310682788995", entityList.get(0).getPayeeDataClientID());
-        assertEquals("6846737252900274180", entityList.get(0).getPayeeDataProductUID());
-        assertEquals("6846737252900274186", entityList.get(0).getPayeeDataRegisterUID());
-        assertEquals("PAO SBERBANK", entityList.get(0).getPayeeDataBankDataName());
-        assertEquals("044525225", entityList.get(0).getPayeeDataBankDataBic());
-        assertEquals("30101810400000000225", entityList.get(0).getPayeeDataBankDataBankAccount());
-        assertEquals("55555/555", entityList.get(0).getPaymentPurpose());
-        assertEquals("5", entityList.get(0).getPaymentPriority());
-        assertEquals("5", entityList.get(0).getPaymentPriorityAuto());
-        assertEquals("3", entityList.get(0).getPaymentSendType());
-        assertEquals("3", entityList.get(0).getPaymentPurposeCode());
-        assertEquals("1", entityList.get(0).getTaxFieldsPayerStatus());
-        assertEquals("000000000000000000000000", entityList.get(0).getTaxFieldsUinCode());
-        assertEquals("18210601010031000110", entityList.get(0).getTaxFieldsKbk());
-        assertEquals("45319000", entityList.get(0).getTaxFieldsOktmo());
-        assertEquals("TP", entityList.get(0).getTaxFieldsPaymentBasis());
-        assertEquals("GD.00.2019", entityList.get(0).getTaxFieldsTaxPeriod());
-        assertEquals("1820", entityList.get(0).getTaxFieldsDocumentTaxNumber());
-        assertEquals("2020-11-06", entityList.get(0).getTaxFieldsDocumentTaxDate());
-        assertEquals("SI", entityList.get(0).getTaxFieldsTaxPayKind());
         assertEquals("38903801775", entityList.get(0).getPayerAccountInfoBankInfoVSPNum());
         assertEquals("78465654673534", entityList.get(0).getDocRef());
         assertEquals("3", entityList.get(0).getOperationType());
         assertEquals("srEdsfsdvs534sdfg54gfgdf", entityList.get(0).getCmsBase64());
-        assertEquals("131321315", entityList.get(0).getFirstSignerIdFirstSigner());
     }
 
 //    @Test

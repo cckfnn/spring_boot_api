@@ -1,6 +1,7 @@
 package com.example.spring_boot_api.controllers;
 
-import com.example.spring_boot_api.dto.HoldItem;
+
+import com.example.spring_boot_api.dto.HoldItemDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,11 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class HoldController {
 
-    private final HoldItem holdItem;
 
-    @PostMapping
+    @GetMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public HoldItem createHold(@RequestBody HoldItem holdItem) {
+    public HoldItemDto createHold(@RequestBody HoldItemDto holdItemDto) {
         return null;
     }
 }

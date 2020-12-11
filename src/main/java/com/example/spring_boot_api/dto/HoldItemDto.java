@@ -10,10 +10,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class HoldItem implements Serializable {
+public class HoldItemDto implements Serializable {
 
-    private static final long serialVersionUID = 7289282703374645131L;
-
+    private static final long serialVersionUID = -7778857769963197745L;
     private Long id;
     private String GUIDRegister;
     private String GUIDExternal;

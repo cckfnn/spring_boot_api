@@ -1,19 +1,19 @@
-package com.example.spring_boot_api.entities;
+package com.example.spring_boot_api.dto;
+
 
 import lombok.*;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentOrderEntity {
+@Builder
+public class PutLegalPaymentOrderRq implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    private static final long serialVersionUID = 1383504060214961234L;
+
     private long id;
 
     protected String payerAccountInfoBankInfoVSPNum;
@@ -23,6 +23,5 @@ public class PaymentOrderEntity {
     protected String operationType;
 
     protected String cmsBase64;
-
 
 }

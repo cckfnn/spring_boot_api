@@ -2,8 +2,8 @@ package com.example.spring_boot_api.controllers;
 
 
 import com.example.spring_boot_api.dto.ListPaymentOrder;
+import com.example.spring_boot_api.dto.PutLegalPaymentOrderRq;
 import com.example.spring_boot_api.services.PaymentOrderService;
-import com.sbt.pprb.dto.srvputlegalpaymentorder.PutLegalPaymentOrderRq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -29,7 +29,7 @@ public class PaymentOrderController {
         return paymentOrderService.getPaymentOrderById(id);
     }
 
-    @GetMapping("/payment-order-number/{number}")
+    @GetMapping("/doc-ref/{number}")
     public ResponseEntity<ListPaymentOrder>  getPaymentOrder(@PathVariable("number") String number) {
         return paymentOrderService.getPaymentOrderByPaymentOrderNumber(number);
     }
