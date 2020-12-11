@@ -36,7 +36,7 @@ public class PaymentOrderEntityControllerTest {
     private PaymentOrderRepository paymentOrderRepository;
 
     @Test
-    public void contextLoads() throws Exception {
+    public void contextLoads() {
         assertThat(paymentOrderController).isNotNull();
     }
 
