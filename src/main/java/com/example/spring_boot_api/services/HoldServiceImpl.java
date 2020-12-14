@@ -1,6 +1,6 @@
 package com.example.spring_boot_api.services;
 
-import com.example.spring_boot_api.entities.HoldEntity;
+import com.example.spring_boot_api.dto.HoldItemDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class HoldServiceImpl implements HoldService {
 
+
     @Override
-    public HoldEntity createHold(HoldEntity holdEntity) {
-        return holdEntity;
+    public HoldItemDto getHoldItemDto(Long customerId) {
+        return null;
     }
 }
+

@@ -13,5 +13,4 @@ public class ExceptionDetails {
     private final Date timestamp;
     private final String message;
     private final String details;
-    private final String path;
 }
