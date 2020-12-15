@@ -1,16 +1,18 @@
 package com.example.spring_boot_api.exceptions;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
 
-@RequiredArgsConstructor
-@ToString
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
 public class ExceptionDetails {
-    private final Date timestamp;
-    private final String message;
-    private final String details;
+    private Date timestamp;
+    private String message;
+    private String details;
+    private String path;
 }

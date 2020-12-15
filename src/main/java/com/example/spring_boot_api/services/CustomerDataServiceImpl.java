@@ -1,10 +1,12 @@
 package com.example.spring_boot_api.services;
 
 import com.example.spring_boot_api.dto.CustomerDataDto;
-import com.example.spring_boot_api.dto.CustomerDto;
+import com.example.spring_boot_api.exceptions.CustomerDataServiceException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @Service
@@ -17,8 +19,15 @@ public class CustomerDataServiceImpl implements CustomerDataService {
     private final RestTemplate restTemplate;
 
     @Override
-    public CustomerDataDto getCustomerDataDto(Long customerId) {
-        return restTemplate.getForObject(String.format("%s/customers/%s/account", customerService, customerId), CustomerDataDto.class);
+    public CustomerDataDto getCustomerDataDto(Long customerId) throws CustomerDataServiceException {
+        try{
+            ResponseEntity<CustomerDataDto> responseEntity =
+                    restTemplate.getForEntity(String.format("%s/customers/%s", customerService, customerId), CustomerDataDto.class);
+            return responseEntity.getBody();
+        } catch (HttpServerErrorException e){
+            System.out.println(e.getStatusCode());
+            throw new CustomerDataServiceException(String.format("Удаленный сервис вернул ошибку %s", e.getStatusCode()));
+        }
     }
 
 }

@@ -17,6 +17,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
@@ -39,16 +40,16 @@ public class CustomerInfoControllerChaosTest {
                 .andRespond(withStatus(httpStatus));
     }
 
-    @Test(timeout = 4000)
+    @Test(timeout = 8000)
     public void testCustomerInfoController_delay() throws URISyntaxException {
 
-        addMockEndpointWithHttpStatus("https://localhost:8081/customers/1", HttpStatus.OK);
-        addMockEndpointWithHttpStatus("https://localhost:8082/customers/1/account", HttpStatus.OK);
+        addMockEndpointWithHttpStatus("https://localhost:8082/customers/1", HttpStatus.OK);
+        addMockEndpointWithHttpStatus("https://localhost:8081/customers/1/holds", HttpStatus.OK);
 
         ResponseEntity<String> response = testRestTemplate.getForEntity("http://localhost:8080/customers-info/1", String.class);
 
         System.out.println(response.getBody());
-        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+        assertEquals(response.getStatusCode(), HttpStatus.OK);
 
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/customers-info", produces = {MediaType.APPLICATION_XML_VALUE})
+@RequestMapping(value = "/customers-info", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 @RequiredArgsConstructor
 public class CustomerDtoController {
     private final CustomerService customerService;
