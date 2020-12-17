@@ -53,7 +53,6 @@ public class CustomerInfoControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(mapper.writeValueAsString(mockResponse))
                 );
-        System.out.println(mapper.writeValueAsString(mockResponse));
     }
 
     private void addMockEndpointWithHttpStatus(String uri, HttpStatus httpStatus) throws URISyntaxException {
@@ -61,7 +60,6 @@ public class CustomerInfoControllerTest {
                 .andExpect(method(HttpMethod.GET))
                 .andRespond(withStatus(httpStatus)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body("")
                 );
     }
 
@@ -122,11 +120,10 @@ public class CustomerInfoControllerTest {
         addMockEndpoint("https://localhost:8081/customers/1/holds", holdItemForMockServer);
 
         // act
-//        ExceptionDetails exceptionDetails = testRestTemplate.getForObject("http://localhost:8080/customers-info/1", ExceptionDetails.class);
-        String exceptionDetails = testRestTemplate.getForObject("http://localhost:8080/customers-info/1", String.class);
-        System.out.println(exceptionDetails);
+        ExceptionDetails exceptionDetails = testRestTemplate.getForObject("http://localhost:8080/customers-info/1", ExceptionDetails.class);
+
         // assert
-//        assertEquals("500 Internal Server Error: [no body]", exceptionDetails.getMessage());
-//        assertEquals("uri=/customers-info/1", exceptionDetails.getDetails());
+        assertEquals("CustomerDataService вернул ошибку 500 INTERNAL_SERVER_ERROR", exceptionDetails.getMessage());
+        assertEquals("uri=/customers-info/1", exceptionDetails.getDetails());
     }
 }
