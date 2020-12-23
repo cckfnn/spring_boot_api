@@ -1,7 +1,13 @@
 package com.example.spring_boot_api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.netflix.hystrix.HystrixCommand;
+import com.netflix.hystrix.HystrixCommandGroupKey;
+import com.netflix.hystrix.HystrixCommandProperties;
 import org.modelmapper.ModelMapper;
+import org.springframework.cloud.client.circuitbreaker.Customizer;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -13,6 +19,7 @@ import java.util.concurrent.Executor;
 
 @Configuration
 @EnableAsync
+@EnableCircuitBreaker
 public class Config {
 
     @Bean
@@ -44,5 +51,13 @@ public class Config {
         executor.setThreadNamePrefix("CustomerService-");
         executor.initialize();
         return executor;
+    }
+
+    @Bean
+    public Customizer<HystrixCircuitBreakerFactory> defaultConfig() {
+        return factory -> factory.configureDefault(id -> HystrixCommand.Setter
+                .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
+                .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
+                        .withExecutionTimeoutInMilliseconds(4000)));
     }
 }

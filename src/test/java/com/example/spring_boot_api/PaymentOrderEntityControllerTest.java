@@ -3,7 +3,6 @@ package com.example.spring_boot_api;
 import com.example.spring_boot_api.controllers.PaymentOrderController;
 import com.example.spring_boot_api.entities.PaymentOrderEntity;
 import com.example.spring_boot_api.repositories.PaymentOrderRepository;
-import com.fasterxml.jackson.core.io.UTF8Writer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.math.BigDecimal;
+
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;

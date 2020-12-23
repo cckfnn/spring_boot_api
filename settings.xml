@@ -1,29 +1,62 @@
 <?xml version="1.0"?>
-<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd"
-          xmlns="http://maven.apache.org/SETTINGS/1.1.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <servers>
-        <server>
-            <username>${nexus.login}</username>
-            <password>${nexus.password}</password>
-            <id>Mirror of NexusDev</id>
-        </server>
-        <server>
-            <username>${nexus.login}</username>
-            <password>${nexus.password}</password>
-            <id>18plus_RKO_release</id>
-        </server>
-        <server>
-            <username>${nexus.login}</username>
-            <password>${nexus.password}</password>
-            <id>18plus_RKO_snapshot</id>
-        </server>
-    </servers>
-    <mirrors>
-        <mirror>
-            <mirrorOf>*</mirrorOf>
-            <url>http://nexus.sigma.sbrf.ru:8099/nexus/content/groups/internal/</url>
-            <id>Mirror of NexusDev</id>
-        </mirror>
-    </mirrors>
+<!--<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd"-->
+<!--          xmlns="http://maven.apache.org/SETTINGS/1.1.0"-->
+<!--          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">-->
+<!--    <servers>-->
+<!--        <server>-->
+<!--            <username>${nexus.login}</username>-->
+<!--            <password>${nexus.password}</password>-->
+<!--            <id>Mirror of NexusDev</id>-->
+<!--        </server>-->
+<!--        <server>-->
+<!--            <username>${nexus.login}</username>-->
+<!--            <password>${nexus.password}</password>-->
+<!--            <id>18plus_RKO_release</id>-->
+<!--        </server>-->
+<!--        <server>-->
+<!--            <username>${nexus.login}</username>-->
+<!--            <password>${nexus.password}</password>-->
+<!--            <id>18plus_RKO_snapshot</id>-->
+<!--        </server>-->
+<!--    </servers>-->
+<!--    <mirrors>-->
+<!--        <mirror>-->
+<!--            <mirrorOf>*</mirrorOf>-->
+<!--            <url>http://nexus.sigma.sbrf.ru:8099/nexus/content/groups/internal/</url>-->
+<!--            <id>Mirror of NexusDev</id>-->
+<!--        </mirror>-->
+<!--    </mirrors>-->
+<!--</settings>-->
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+<servers>
+    <server>
+        <id>release.repo</id>
+        <username>${nexus.login}</username>
+        <password>${nexus.password}</password>
+    </server>
+    <server>
+        <id>snapshot.repo</id>
+        <username>${nexus.login}</username>
+        <password>${nexus.password}</password>
+    </server>
+    <server>
+        <id>internal</id>
+        <username>${nexus.login}</username>
+        <password>${nexus.password}</password>
+    </server>
+</servers>
+
+<mirrors>
+    <mirror>
+        <id>internal</id>
+        <name>Mirror of central</name>
+        <url>http://sbtatlas.sigma.sbrf.ru/nexus/content/groups/internal</url>
+        <mirrorOf>*</mirrorOf>
+    </mirror>
+</mirrors>
 </settings>
