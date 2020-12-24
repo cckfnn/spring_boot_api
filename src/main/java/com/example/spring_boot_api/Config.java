@@ -58,6 +58,6 @@ public class Config {
         return factory -> factory.configureDefault(id -> HystrixCommand.Setter
                 .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
                 .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
-                        .withExecutionTimeoutInMilliseconds(4000)));
+                        .withExecutionTimeoutInMilliseconds(1000)));
     }
 }

@@ -3,9 +3,11 @@ package com.example.spring_boot_api.services;
 import com.example.spring_boot_api.dto.CustomerDataDto;
 import com.example.spring_boot_api.dto.CustomerDto;
 import com.example.spring_boot_api.dto.HoldItemDto;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -39,4 +41,5 @@ public class CustomerServiceImpl implements CustomerService {
 
         return CustomerDto.builder().customerDataDto(customerDataFuture.get()).holdItemDto(holdItemDtoFuture.get()).build();
     }
+
 }

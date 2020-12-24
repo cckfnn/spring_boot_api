@@ -25,7 +25,7 @@ public class HoldItemServiceImpl implements HoldItemService {
     private final RestTemplate restTemplate;
 
     @Override
-    @HystrixCommand(fallbackMethod = "reliable")
+    @HystrixCommand(fallbackMethod = "getHoldItemDtoReliable")
     public HoldItemDto getHoldItemDto(long customerId) {
         ResponseEntity<HoldItemDto> entity = restTemplate.getForEntity(String.format("%s/customers/%s/holds", holdItemServiceUrl, customerId), HoldItemDto.class);
         return entity.getBody();
@@ -36,7 +36,7 @@ public class HoldItemServiceImpl implements HoldItemService {
        return CompletableFuture.completedFuture(getHoldItemDto(customerId));
     }
 
-    public HoldItemDto reliable(long customerId){
+    public HoldItemDto getHoldItemDtoReliable(long customerId){
         return HoldItemDto.builder()
                 .dateVal("hystryxDateval")
                 .currency("hystryxCurrency")

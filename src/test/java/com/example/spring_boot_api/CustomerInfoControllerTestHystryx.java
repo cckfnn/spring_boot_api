@@ -25,8 +25,4 @@ public class CustomerInfoControllerTestHystryx {
         assertEquals("hystryxDateval", holdItemDto.getDateVal());
     }
 
-    @Test
-    public void testCustomerServiceHystryx() {
-        CustomerDto actualCustomerDto = testRestTemplate.getForObject("http://localhost:8080/customers-info/1", CustomerDto.class);
-    }
 }
