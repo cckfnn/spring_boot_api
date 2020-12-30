@@ -35,7 +35,9 @@ public class PaymentOrderServiceImpl implements PaymentOrderService{
                 paymentOrderEntity.getPayerAccountInfoBankInfoVSPNum(),
                 paymentOrderEntity.getDocRef(),
                 paymentOrderEntity.getOperationType(),
-                paymentOrderEntity.getCmsBase64());
+                paymentOrderEntity.getCmsBase64(),
+                paymentOrderEntity.getBankAccount(),
+                paymentOrderEntity.getPercent());
     }
 
     @Override

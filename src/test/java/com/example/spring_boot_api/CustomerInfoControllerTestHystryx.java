@@ -1,8 +1,6 @@
 package com.example.spring_boot_api;
 
-import com.example.spring_boot_api.dto.CustomerDto;
 import com.example.spring_boot_api.dto.HoldItemDto;
-import com.example.spring_boot_api.services.HoldItemService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

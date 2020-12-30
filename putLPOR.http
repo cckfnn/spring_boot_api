@@ -8,6 +8,21 @@ Content-Type: application/xml
     <docRef>78465654673534</docRef>
     <operationType>3</operationType>
     <cmsBase64>srEdsfsdvs534sdfg54gfgdf</cmsBase64>
+    <bankAccount>123456</bankAccount>
+</PutLegalPaymentOrderRq>
+
+###
+
+POST /payment-orders HTTP/1.1
+Host: localhost:8080
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="utf-8" ?>
+<PutLegalPaymentOrderRq>
+    <payerAccountInfoBankInfoVSPNum>38903801775</payerAccountInfoBankInfoVSPNum>
+    <docRef>11111</docRef>
+    <operationType>3</operationType>
+    <cmsBase64>srEdsfsdvs534sdfg54gfgdf</cmsBase64>
 </PutLegalPaymentOrderRq>
 
 ###

@@ -2,6 +2,7 @@ package com.example.spring_boot_api.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotEmpty;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.ArrayList;

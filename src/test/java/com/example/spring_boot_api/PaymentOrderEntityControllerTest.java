@@ -43,7 +43,7 @@ public class PaymentOrderEntityControllerTest {
     @Before
     public void setup() {
         mockMvc = MockMvcBuilders.standaloneSetup(paymentOrderController).build();
-        xmlString = Utils.loadConfigAsString();
+        xmlString = Utils.loadConfigAsString("test.xml");
     }
 
 
@@ -70,19 +70,5 @@ public class PaymentOrderEntityControllerTest {
         assertEquals("3", entityList.get(0).getOperationType());
         assertEquals("srEdsfsdvs534sdfg54gfgdf", entityList.get(0).getCmsBase64());
     }
-
-//    @Test
-//    public void testMessagePage() throws Exception {
-//
-//        mockMvc.perform(
-//                post("/payment-orders")
-//                        .content(xmlString)
-//                        .contentType(MediaType.APPLICATION_XML)
-//        )
-//                .andExpect(status().isCreated())
-//                .andExpect(content().xml(xmlString))
-//        ;
-//        System.out.println(content());
-//    }
 
 }

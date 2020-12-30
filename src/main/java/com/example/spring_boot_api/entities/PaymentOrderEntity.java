@@ -16,13 +16,15 @@ public class PaymentOrderEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    protected String payerAccountInfoBankInfoVSPNum;
+    private String payerAccountInfoBankInfoVSPNum;
 
-    protected String docRef;
+    private String docRef;
 
-    protected String operationType;
+    private String operationType;
 
-    protected String cmsBase64;
+    private String cmsBase64;
 
+    private String bankAccount;
 
+    private int percent;
 }

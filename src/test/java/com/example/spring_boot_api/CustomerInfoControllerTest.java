@@ -15,6 +15,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
@@ -22,6 +23,7 @@ import org.springframework.test.web.client.MockRestServiceServer;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -125,5 +127,21 @@ public class CustomerInfoControllerTest {
         // assert
         assertEquals("CustomerDataService вернул ошибку 500 INTERNAL_SERVER_ERROR", exceptionDetails.getMessage());
         assertEquals("uri=/customers-info/1", exceptionDetails.getDetails());
+    }
+
+    @Test
+    public void testCustomerInfoControllerWrongInsert() throws URISyntaxException, JsonProcessingException {
+
+        customerDataForMockServer.setFirstName("u");
+        // arrange
+        addMockEndpoint("https://localhost:8082/customers/1", customerDataForMockServer);
+
+        // act
+        ResponseEntity<ExceptionDetails>  responseEntity = testRestTemplate.getForEntity("https://localhost:8082/customers/1", ExceptionDetails.class);
+
+        // assert
+        String info = Objects.requireNonNull(responseEntity.getBody()).getMessage();
+        assertEquals(500, responseEntity.getStatusCodeValue());
+        assertTrue(info.contains("Поле firstName должно содержать от 2 до 20 символов"));
     }
 }
