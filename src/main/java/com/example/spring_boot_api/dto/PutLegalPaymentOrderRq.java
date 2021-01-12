@@ -31,7 +31,7 @@ public class PutLegalPaymentOrderRq implements Serializable {
     @Size(min = 1, max = 1)
     private String operationType;
 
-    @NotEmpty(message = "408444434343434cmsBase64 должно быть заполнено")
+    @NotEmpty(message = "cmsBase64 должно быть заполнено")
     private String cmsBase64;
 
     @Pattern(regexp = "^40[78]\\d*$", message = "Номер счета не соответствует маске")

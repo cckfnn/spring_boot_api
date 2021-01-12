@@ -38,6 +38,7 @@ public class PaymentOrderControllerTest {
                 .operationType("3")
                 .payerAccountInfoBankInfoVSPNum("38903801775")
                 .percent(50)
+                .bankAccount("407555")
                 .build();
 
         rqWithCmsBase64Error = PutLegalPaymentOrderRq.builder()
@@ -46,6 +47,7 @@ public class PaymentOrderControllerTest {
                 .operationType("3")
                 .payerAccountInfoBankInfoVSPNum("38903801775")
                 .percent(50)
+                .bankAccount("407555")
                 .build();
 
         rqWithCmsBankAccountError = PutLegalPaymentOrderRq.builder()
@@ -62,7 +64,7 @@ public class PaymentOrderControllerTest {
                 .docRef("12345678")
                 .operationType("3")
                 .payerAccountInfoBankInfoVSPNum("38903801775")
-                .bankAccount("404555")
+                .bankAccount("407555")
                 .percent(0) // ошибка, должно быть в диапазоне от 1 до 100
                 .build();
 
@@ -71,7 +73,7 @@ public class PaymentOrderControllerTest {
                 .docRef("12345678")
                 .operationType("3")
                 .payerAccountInfoBankInfoVSPNum("38903801775")
-                .bankAccount("404555")
+                .bankAccount("408555")
                 .percent(101) // ошибка, должно быть в диапазоне от 1 до 100
                 .build();
     }

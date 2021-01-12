@@ -1,14 +1,14 @@
-POST /payment-orders HTTP/1.1
+POST /payment-orders
 Host: localhost:8080
 Content-Type: application/xml
 
-<?xml version="1.0" encoding="utf-8" ?>
 <PutLegalPaymentOrderRq>
     <payerAccountInfoBankInfoVSPNum>38903801775</payerAccountInfoBankInfoVSPNum>
-    <docRef>78465654673534</docRef>
+    <docRef>12345678</docRef>
     <operationType>3</operationType>
     <cmsBase64>srEdsfsdvs534sdfg54gfgdf</cmsBase64>
-    <bankAccount>123456</bankAccount>
+    <bankAccount>408777</bankAccount>
+    <percent>12</percent>
 </PutLegalPaymentOrderRq>
 
 ###

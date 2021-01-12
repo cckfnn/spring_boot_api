@@ -5,9 +5,10 @@ COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
-COPY settings.xml .
+#COPY settings.xml .
 
-RUN ./mvnw install -DskipTests -s settings.xml
+#RUN ./mvnw install -DskipTests -s settings.xml
+RUN ./mvnw install -DskipTests
 RUN ls -lsa target
 
 FROM openjdk:8-jdk-alpine

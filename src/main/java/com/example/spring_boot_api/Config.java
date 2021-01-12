@@ -14,6 +14,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.concurrent.Executor;
 
@@ -59,5 +63,14 @@ public class Config {
                 .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
                 .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
                         .withExecutionTimeoutInMilliseconds(1000)));
+    }
+
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.OAS_30)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.example.spring_boot_api.controllers"))
+                .paths(PathSelectors.any())
+                .build();
     }
 }
